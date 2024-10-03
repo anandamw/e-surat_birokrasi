@@ -4,7 +4,7 @@
 - **Yosi Bagus Sadar Rasuli**
 
 ## Frontend Developer
-- [**Septia Budi**]/(https://github.com/septiabudiws)
+- [septiabudiws](https://github.com/septiabudiws)
 
 
 ## Backend Developer

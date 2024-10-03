@@ -1,16 +1,16 @@
 # Project Team By [TURBO-MAIN](https://turbo-main.com/)
 
 ## CEO
-- [Yosi Bagus Sadar Rasuli](https://github.com/yosibagus)
+- [Yosibagus](https://github.com/yosibagus)
 
 ## Frontend Developer
-- [Septia Budi](https://github.com/septiabudiws)
+- [Septiabudiws](https://github.com/septiabudiws)
 
 ## Backend Developer
-- [Ananda Maulana Wahyudi](https://github.com/anandamw)
+- [Anandamw](https://github.com/anandamw)
 
 ## Database Administrator
-- **Rahmat Syafri**
+- [Syafrii](https://github.com/anandamw)
 
 ---
 

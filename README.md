@@ -3,6 +3,10 @@
 ## CEO
 - [Yosibagus](https://github.com/yosibagus)
 
+## Manager
+- [nome](https://github.com/noname)
+- [nome](https://github.com/noname)
+
 ## Frontend Developer
 - [Septiabudiws](https://github.com/septiabudiws)
 - [RafiMaulana22](https://github.com/RafiMaulana22)
@@ -12,7 +16,7 @@
 - [AbdRahmanSiddik](https://github.com/AbdRahmanSiddik)
   
 ## Database Administrator
-
-
+- [nome](https://github.com/noname)
+- [nome](https://github.com/noname)
 
 ---

@@ -4,8 +4,8 @@
 - **Yosi Bagus Sadar Rasuli**
 
 ## Frontend Developer
-- **Septia Budi**
-- [GitHub Profile](https://github.com/septiabudi) 
+- [**Septia Budi**]/(https://github.com/septiabudiws)
+
 
 ## Backend Developer
 - **Ananda Maulana Wahyudi**

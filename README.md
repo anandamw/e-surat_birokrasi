@@ -3,8 +3,8 @@
 ## CEO
 - [Yosibagus](https://github.com/yosibagus)
 
-## Manager
-- [nome](https://github.com/noname)
+## Project Manager
+- [Dyycoding82](https://github.com/Dyycoding82)
 - [nome](https://github.com/noname)
 
 ## Frontend Developer

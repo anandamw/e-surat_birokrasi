@@ -1,4 +1,4 @@
 # Project Team By [TURBO-MAIN](https://turbo-main.com/)
 
 
-![Turbo-Main](./e-surat_birokrasi/public/turbo.jpg)
+![Turbo-Main](./public/turbo.jpg)

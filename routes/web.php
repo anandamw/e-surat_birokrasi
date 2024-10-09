@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login.login');
 });
+
+Route::get('/rekap', function () {
+    return view('rekapitulasi.rekapitulasi');
+});
+
+Route::get('/formSatu', function () {
+    return view('form.form1');
+});

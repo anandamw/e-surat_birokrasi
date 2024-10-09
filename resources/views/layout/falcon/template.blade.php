@@ -1097,13 +1097,13 @@
                     <hr class="mb-0 navbar-vertical-divider" />
                   </div>
                 </div><!-- parent pages--><a class="nav-link" href="app/calendar.html" role="button">
-                </a><!-- parent pages--><a class="nav-link dropdown-indicator" href="#email" role="button"
-                  data-bs-toggle="collapse" aria-expanded="false" aria-controls="email">
+                </a><!-- parent pages--><a class="nav-link dropdown-indicator" href="#kategori" role="button"
+                  data-bs-toggle="collapse" aria-expanded="false" aria-controls="kategori">
                   <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                         class="fas fa-folder-open"></span></span><span class="nav-link-text ps-1">Kategori</span>
                   </div>
                 </a>
-                <ul class="nav collapse" id="email">
+                <ul class="nav collapse" id="kategori">
                   <li class="nav-item"><a class="nav-link" href="/formSatu">
                       <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Kategori Surat
                           1</span></div>

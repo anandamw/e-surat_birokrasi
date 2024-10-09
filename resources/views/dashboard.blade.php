@@ -11,7 +11,8 @@
                     </div><img class="ms-n4 d-md-none d-lg-block" src="{{ asset('falcon') }}/assets/img/illustrations/crm-line-chart.png" alt="" width="150" />
                   </div>
                   <div class="col-md-auto p-3">
-                    <button class="btn btn-primary me-1 mb-1" type="button">Ajukan Surat</button>
+                    <a class="btn btn-primary me-1 mb-1" href="#kategori" role="button"
+                  data-bs-toggle="collapse" aria-expanded="false" aria-controls="kategori">Ajukan Surat</a>
                   </div>
                 </div>
               </div>

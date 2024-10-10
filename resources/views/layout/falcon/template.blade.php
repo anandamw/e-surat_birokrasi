@@ -1122,14 +1122,23 @@
                   </div>
                 </a><!-- parent pages-->
               </li>
-            </ul>
-            <div class="settings mb-3">
-                <a class="nav-link" href="/rekap">
+              <li class="nav-item">
+                <div class="settings mb-3 position-absolute start-0 bottom-0">
+                <div class="btn-group dropup">
+                <a class=" nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                         class="fas fa-cog"></span></span><span class="nav-link-text ps-1">Settings</span>
                   </div>
                 </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/rekap">Tambah Kategori Surat</a></li>
+                    <li><a class="dropdown-item" href="/rekap">Tambah Tipe Surat</a></li>
+                </ul>
+                </div>
             </div>
+              </li>
+            </ul>
+
           </div>
         </div>
       </nav>

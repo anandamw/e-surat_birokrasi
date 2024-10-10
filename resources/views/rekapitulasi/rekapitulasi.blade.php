@@ -174,10 +174,10 @@
                 <p class="mb-0 fs-10">
                   <span class="d-none d-sm-inline-block" data-list-info="data-list-info"></span>
                   <span class="d-none d-sm-inline-block"> &mdash;</span>
-                  <a class="fw-semi-bold" href="#!" data-list-view="*">View all<span class="fas fa-angle-right ms-1"
-                      data-fa-transform="down-1"></span></a><a class="fw-semi-bold d-none" href="#!"
-                    data-list-view="less">View Less<span class="fas fa-angle-right ms-1"
-                      data-fa-transform="down-1"></span></a>
+                  <a class="fw-semi-bold" href="#!" data-list-view="*">View all<span
+                      class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a><a
+                    class="fw-semi-bold d-none" href="#!" data-list-view="less">View Less<span
+                      class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
                 </p>
               </div>
               <div class="col-auto d-flex"><button class="btn btn-sm btn-primary" type="button"
@@ -187,8 +187,8 @@
             </div>
           </div>
         </div>
-        <div class="tab-pane code-tab-pane" role="tabpanel" aria-labelledby="tab-dom-5ab6a6c2-df09-43e8-ad96-79a7b5f6dea6"
-          id="dom-5ab6a6c2-df09-43e8-ad96-79a7b5f6dea6">
+        <div class="tab-pane code-tab-pane" role="tabpanel"
+          aria-labelledby="tab-dom-5ab6a6c2-df09-43e8-ad96-79a7b5f6dea6" id="dom-5ab6a6c2-df09-43e8-ad96-79a7b5f6dea6">
         </div>
       </div>
     </div>

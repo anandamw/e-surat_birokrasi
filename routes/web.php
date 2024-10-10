@@ -26,5 +26,5 @@ Route::get('/rekap', function () {
 });
 
 Route::get('/formSatu', function () {
-    return view('form.form1');
+    return view('form.form_surat');
 });

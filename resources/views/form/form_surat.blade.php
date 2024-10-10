@@ -26,21 +26,23 @@
                   aria-label="Close"></button>
               </div>
               <div class="modal-body py-4 px-5">
-                  <div class="mb-3"><label class="form-label" for="modal-auth-name">Nama Mahasiswa</label><input
-                      class="form-control" type="text" autocomplete="on" id="modal-auth-name" value="Rafi Nur Anjay" readonly /></div>
-                  <div class="mb-3"><label class="form-label" for="modal-auth-email">Nim Mahasiswa</label><input
-                      class="form-control" type="text" autocomplete="on" id="modal-auth-email" value="2202310007" readonly/></div>
-                  <div class="mb-3"><label class="form-label" for="basic-form-gender">Pilih Tipe Surat</label><select
-                      class="form-select" id="basic-form-gender" aria-label="Default select example">
-                      <option selected="selected">Pilih Tipe Surat</option>
-                      <option value="male">Peminjaman</option>
-                      <option value="female">Magang</option>
-                      <option value="other">Sidang</option>
-                    </select></div>
-                  <div class="mb-3"><label class="form-label" for="tgl">Tanggal</label><input
-                      class="form-control" type="date" id="tgl" /></div>
-                  <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
-                      name="submit">Ajukan Surat</button></div>
+                <div class="mb-3"><label class="form-label" for="modal-auth-name">Nama Mahasiswa</label><input
+                    class="form-control" type="text" autocomplete="on" id="modal-auth-name" value="Rafi Nur Anjay"
+                    readonly /></div>
+                <div class="mb-3"><label class="form-label" for="modal-auth-email">Nim Mahasiswa</label><input
+                    class="form-control" type="text" autocomplete="on" id="modal-auth-email" value="2202310007"
+                    readonly /></div>
+                <div class="mb-3"><label class="form-label" for="basic-form-gender">Pilih Tipe Surat</label><select
+                    class="form-select" id="basic-form-gender" aria-label="Default select example">
+                    <option selected="selected">Pilih Tipe Surat</option>
+                    <option value="male">Peminjaman</option>
+                    <option value="female">Magang</option>
+                    <option value="other">Sidang</option>
+                  </select></div>
+                <div class="mb-3"><label class="form-label" for="tgl">Tanggal</label><input class="form-control"
+                    type="date" id="tgl" /></div>
+                <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
+                    name="submit">Ajukan Surat</button></div>
                 <div class="position-relative mt-5">
                   <hr />
                   <div class="divider-content-center">Birokrasi E-Surat Uniba Madura</div>

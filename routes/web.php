@@ -28,3 +28,7 @@ Route::get('/rekap', function () {
 Route::get('/formSatu', function () {
     return view('form.form_surat');
 });
+
+Route::get('/settings', function () {
+    return view('dashboard-settings');
+});

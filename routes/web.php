@@ -24,3 +24,27 @@ Route::get('/rekap', function () {
 Route::get('/settings', function () {
     return view('settings.dashboard-settings');
 });
+
+Route::get('/settings/kategori', function () {
+    return view('settings.kategori.kategori-view');
+});
+
+Route::get('/settings/kategori_tambah', function () {
+    return view('settings.kategori.kategori-tambah');
+});
+
+Route::get('/settings/kategori_edit', function () {
+    return view('settings.kategori.kategori-edit');
+});
+
+Route::get('/settings/tipe', function () {
+    return view('settings.tipe_surat.tipe-view');
+});
+
+Route::get('/settings/tipe_tambah', function () {
+    return view('settings.tipe_surat.tipe-tambah');
+});
+
+Route::get('/settings/tipe_edit', function () {
+    return view('settings.tipe_surat.tipe-edit');
+});

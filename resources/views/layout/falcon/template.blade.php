@@ -62,6 +62,7 @@
           container.classList.add('container-fluid');
         }
       </script>
+
       <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand-lg"
         data-double-top-nav="data-double-top-nav" style="display: none;">
         <div class="w-100">
@@ -219,7 +220,7 @@
                   </div>
                 </div>
               </li>
-              <li class="nav-item d-none d-sm-block">
+              {{-- <li class="nav-item d-none d-sm-block">
                 <a class="nav-link px-0 notification-indicator notification-indicator-warning notification-indicator-fill fa-icon-wait"
                   href="app/e-commerce/shopping-cart.html"><span class="fas fa-shopping-cart"
                     data-fa-transform="shrink-7" style="font-size: 33px;"></span><span
@@ -501,7 +502,7 @@
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> --}}
               <li class="nav-item dropdown"><a class="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button"
                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="avatar avatar-xl">
@@ -1063,6 +1064,7 @@
           </div>
         </div>
       </nav>
+
       @if (Request::is('settings*'))
         @include('layout.components.sidebar-settings')
       @else
@@ -1636,7 +1638,7 @@
               </div>
             </div>
           </li>
-          <li class="nav-item d-none d-sm-block">
+          {{-- <li class="nav-item d-none d-sm-block">
             <a class="nav-link px-0 notification-indicator notification-indicator-warning notification-indicator-fill fa-icon-wait"
               href="app/e-commerce/shopping-cart.html"><span class="fas fa-shopping-cart"
                 data-fa-transform="shrink-7" style="font-size: 33px;"></span><span
@@ -1918,7 +1920,7 @@
                 </div>
               </div>
             </div>
-          </li>
+          </li> --}}
           <li class="nav-item dropdown"><a class="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button"
               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="avatar avatar-xl">
@@ -2070,6 +2072,7 @@
               </div>
             </li>
           </ul>
+          {{-- navbar big display --}}
           <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
             <li class="nav-item ps-2 pe-0">
               <div class="dropdown theme-control-dropdown"><a
@@ -2095,7 +2098,7 @@
                 </div>
               </div>
             </li>
-            <li class="nav-item d-none d-sm-block">
+            {{-- <li class="nav-item d-none d-sm-block">
               <a class="nav-link px-0 notification-indicator notification-indicator-warning notification-indicator-fill fa-icon-wait"
                 href="app/e-commerce/shopping-cart.html"><span class="fas fa-shopping-cart"
                   data-fa-transform="shrink-7" style="font-size: 33px;"></span><span
@@ -2377,7 +2380,7 @@
                   </div>
                 </div>
               </div>
-            </li>
+            </li> --}}
             <li class="nav-item dropdown"><a class="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="avatar avatar-xl">
@@ -2979,7 +2982,7 @@
                 </div>
               </div>
             </li>
-            <li class="nav-item d-none d-sm-block">
+            {{-- <li class="nav-item d-none d-sm-block">
               <a class="nav-link px-0 notification-indicator notification-indicator-warning notification-indicator-fill fa-icon-wait"
                 href="app/e-commerce/shopping-cart.html"><span class="fas fa-shopping-cart"
                   data-fa-transform="shrink-7" style="font-size: 33px;"></span><span
@@ -3261,7 +3264,7 @@
                   </div>
                 </div>
               </div>
-            </li>
+            </li> --}}
             <li class="nav-item dropdown"><a class="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="avatar avatar-xl">

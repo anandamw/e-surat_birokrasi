@@ -28,8 +28,8 @@
                 </thead>
                 <tbody class="list">
                   <tr>
-                    <td class="no">1</td>
-                    <td class="nama text-center">Surat Edaran</td>
+                    <td class="no align-middle">1</td>
+                    <td class="nama text-center align-middle">Surat Edaran</td>
                     <td class="action text-center align-middle">
                       <button class="btn btn-info me-1 mb-1" type="button" data-bs-toggle="modal"
                         data-bs-target="#authentication-modal2">Edit</button>

@@ -48,7 +48,7 @@
           <a class="nav-link" href="/settings/kategori">
             <div class="d-flex align-items-center">
               <span class="nav-link-icon">
-                <span class="fas fa-table"></span>
+                <span class="fas fa-clipboard-list"></span>
               </span>
               <span class="nav-link-text ps-1">Kategori</span>
             </div>
@@ -56,7 +56,7 @@
           <a class="nav-link" href="/settings/tipe">
             <div class="d-flex align-items-center">
               <span class="nav-link-icon">
-                <span class="fas fa-table"></span>
+                <span class="fas fa-indent"></span>
               </span>
               <span class="nav-link-text ps-1">Tipe Surat</span>
             </div>
@@ -65,7 +65,7 @@
           <a class="nav-link" href="/settings/pengabsahan">
             <div class="d-flex align-items-center">
               <span class="nav-link-icon">
-                <span class="fas fa-table"></span>
+                <span class="fas fa-file-signature"></span>
               </span>
               <span class="nav-link-text ps-1">Pengabsahan</span>
             </div>
@@ -77,7 +77,7 @@
             <a class=" nav-link" type="button" href="/dashboard">
               <div class="d-flex align-items-center">
                 <span class="nav-link-icon">
-                  <span class="fas fa-cog"></span>
+                  <span class="fas fa-arrow-left"></span>
                 </span>
                 <span class="nav-link-text ps-1">Kembali</span>
               </div>

@@ -20,6 +20,10 @@ Route::get('/rekap', function () {
     return view('navigasi.rekapitulasi.rekapitulasi');
 });
 
+Route::get('/validator', function () {
+    return view('navigasi.validator.validator-view');
+});
+
 // Bagian Settings
 Route::get('/settings', function () {
     return view('settings.dashboard-settings');

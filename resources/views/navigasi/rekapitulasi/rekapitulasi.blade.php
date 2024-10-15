@@ -20,8 +20,9 @@
                     <th class="text-900 sort">Nim</th>
                     <th class="text-900 sort">Nama Mahasiswa</th>
                     <th class="text-900 sort">Tipe Surat</th>
+                    <th class="text-900 sort">Validator</th>
                     <th class="text-900 sort">Tanggal Penyetujuan</th>
-                    <th class="text-900 sort">status</th>
+                    <th class="text-900 sort text-center">status</th>
                   </tr>
                 </thead>
                 <tbody class="list">
@@ -29,141 +30,177 @@
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
                   </tr>
                   <tr>
                     <td class="nim">2202310006</td>
                     <td class="nama">rafi maulana</td>
                     <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
                     <td class="tgl">20-76-2037</td>
-                    <td class="status"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
+                  </tr>
+                  <tr>
+                    <td class="nim">2202310006</td>
+                    <td class="nama">rafi maulana</td>
+                    <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
+                    <td class="tgl">20-76-2037</td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-success false">Selesai</small></td>
+                  </tr>
+                  <tr>
+                    <td class="nim">2202310006</td>
+                    <td class="nama">rafi maulana</td>
+                    <td class="surat">Surat Magang</td>
+                    <td class="validator">Ahmad Sunedi</td>
+                    <td class="tgl">20-76-2037</td>
+                    <td class="status text-center"><small class="badge rounded badge-subtle-warning false">Pending</small></td>
                   </tr>
                 </tbody>
               </table>

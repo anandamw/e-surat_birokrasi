@@ -48,3 +48,7 @@ Route::get('/settings/tipe_tambah', function () {
 Route::get('/settings/tipe_edit', function () {
     return view('settings.tipe_surat.tipe-edit');
 });
+
+Route::get('/settings/pengabsahan', function () {
+    return view('settings.pengabsahan.pengabsahan-view');
+});

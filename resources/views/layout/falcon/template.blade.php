@@ -24,6 +24,7 @@
   <script src="{{ asset('falcon') }}/vendors/simplebar/simplebar.min.js"></script>
 
   <!-- ===============================================--><!--    Stylesheets--><!-- ===============================================-->
+  <link rel="stylesheet" href="{{ asset('falcon/assets/css/dragNdrop.css') }}">
   <link rel="preconnect" href="https://fonts.gstatic.com/">
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap"

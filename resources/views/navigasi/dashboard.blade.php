@@ -13,9 +13,78 @@
               src="{{ asset('falcon') }}/assets/img/illustrations/crm-line-chart.png" alt="" width="150" />
           </div>
           <div class="col-md-auto p-3">
-            <a class="btn btn-primary me-1 mb-1" href="#kategori" role="button" data-bs-toggle="collapse"
-              aria-expanded="false" aria-controls="kategori">Ajukan Surat</a>
+            <button class="btn btn-primary me-1 mb-1" type="button" data-bs-toggle="modal"
+              data-bs-target="#authentication-modal">Ajukan Surat</button>
           </div>
+          <form action="">
+            <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog"
+              aria-labelledby="authentication-modal-label" aria-hidden="true">
+              <div class="modal-dialog mt-6" role="document">
+                <div class="modal-content border-0">
+                  <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
+                    <div class="position-relative z-1">
+                      <h4 class="mb-0 text-white" id="authentication-modal-label">Ajukan Surat</h4>
+                      <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini</p>
+                    </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body py-4 px-5">
+                    <div class="mb-3"><label class="form-label" for="modal-auth-name">Masukkan NIM
+                        Mahasiswa</label><input class="form-control" type="text" autocomplete="on"
+                        id="modal-auth-name" />
+                    </div>
+                    <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="button"
+                        data-bs-toggle="modal" data-bs-target="#authentication-modal2">Cek Nim</button></div>
+                    <div class="position-relative mt-5">
+                      <hr />
+                      <div class="divider-content-center">Birokrasi E-Surat Uniba Madura</div>
+                    </div>
+                    <div class="row g-2 mt-2">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="authentication-modal2" tabindex="-1" role="dialog"
+              aria-labelledby="authentication-modal-label" aria-hidden="true">
+              <div class="modal-dialog mt-6" role="document">
+                <div class="modal-content border-0">
+                  <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
+                    <div class="position-relative z-1">
+                      <h4 class="mb-0 text-white" id="authentication-modal-label">NIM Terdaftar</h4>
+                      <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini</p>
+                    </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body py-4 px-5">
+                    <div class="mb-3"><label class="form-label" for="modal-auth-name">Nama Mahasiswa</label><input
+                        class="form-control" type="text" autocomplete="on" id="modal-auth-name" value="Rafi Nur Anjay"
+                        readonly /></div>
+                    <div class="mb-3"><label class="form-label" for="modal-auth-email">Nim Mahasiswa</label><input
+                        class="form-control" type="text" autocomplete="on" id="modal-auth-email" value="2202310007"
+                        readonly /></div>
+                    <div class="mb-3"><label class="form-label" for="basic-form-gender">Pilih Tipe Surat</label><select
+                        class="form-select" id="basic-form-gender" aria-label="Default select example">
+                        <option selected="selected">Pilih Tipe Surat</option>
+                        <option value="male">Peminjaman</option>
+                        <option value="female">Magang</option>
+                        <option value="other">Sidang</option>
+                      </select></div>
+                    <div class="mb-3"><label class="form-label" for="tgl">Tanggal</label><input
+                        class="form-control" type="date" id="tgl" /></div>
+                    <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
+                        name="submit">Ajukan Surat</button></div>
+                    <div class="position-relative mt-5">
+                      <hr />
+                      <div class="divider-content-center">Birokrasi E-Surat Uniba Madura</div>
+                    </div>
+                    <div class="row g-2 mt-2">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -65,8 +134,8 @@
                 <h6 class="text-700 mb-0">27%</h6>
               </div>
               <div class="d-flex flex-between-center border-bottom py-3">
-                <div class="d-flex"><img class="me-2" src="{{ asset('falcon') }}/assets/img/crm/call.svg" width="16"
-                    height="16" alt="..." />
+                <div class="d-flex"><img class="me-2" src="{{ asset('falcon') }}/assets/img/crm/call.svg"
+                    width="16" height="16" alt="..." />
                   <h6 class="text-700 mb-0">Call </h6>
                 </div>
                 <p class="fs-10 text-500 mb-0 fw-semi-bold">2535 vs 1486</p>

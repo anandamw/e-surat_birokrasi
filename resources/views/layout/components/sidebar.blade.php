@@ -67,7 +67,7 @@
           <a class="nav-link" href="/rekap">
             <div class="d-flex align-items-center">
               <span class="nav-link-icon">
-                <span class="fas fa-table"></span>
+                <span class="fas fa-server"></span>
               </span>
               <span class="nav-link-text ps-1">Rekapitulasi</span>
             </div>

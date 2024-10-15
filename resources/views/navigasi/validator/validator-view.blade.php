@@ -17,15 +17,17 @@
               <table class="table table-bordered table-striped fs-10 mb-0">
                 <thead class="bg-200">
                   <tr>
-                    <th class="text-900 sort text-center">Nim</th>
-                    <th class="text-900 sort text-center">Nama Mahasiswa</th>
-                    <th class="text-900 sort text-center">Jurusan</th>
-                    <th class="text-900 sort text-center">Tipe Surat</th>
-                    <th class="text-900 sort text-center">Aksi</th>
+                    <th class="text-900 sort align-middle text-center">No</th>
+                    <th class="text-900 sort align-middle text-center">Nim</th>
+                    <th class="text-900 sort align-middle text-center">Nama Mahasiswa</th>
+                    <th class="text-900 sort align-middle text-center">Jurusan</th>
+                    <th class="text-900 sort align-middle text-center">Tipe Surat</th>
+                    <th class="text-900 sort align-middle text-center">Aksi</th>
                   </tr>
                 </thead>
                 <tbody class="list">
                   <tr>
+                    <td class="no align-middle text-center">1</td>
                     <td class="nim align-middle text-center">2202310006</td>
                     <td class="nama align-middle text-center">rafi maulana</td>
                     <td class="jurusan align-middle text-center">INFORMATIKA</td>

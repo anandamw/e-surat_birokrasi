@@ -21,7 +21,7 @@
               <table class="table table-bordered table-striped fs-10 mb-0">
                 <thead class="bg-200">
                   <tr>
-                    <th class="text-900 sort">No</th>
+                    <th class="text-900 sort text-center">No</th>
                     <th class="text-900 sort text-center">Nama</th>
                     <th class="text-900 sort text-center">TTD</th>
                     <th class="text-900 sort text-center">Action</th>
@@ -29,7 +29,7 @@
                 </thead>
                 <tbody class="list">
                   <tr>
-                    <td class="no align-middle">1</td>
+                    <td class="no align-middle text-center align-middle">1</td>
                     <td class="nama text-center text-break align-middle">Yosi Bagus</td>
                     <td class="foto text-center align-middle"><img src="{{ asset('falcon') }}/ktp.jpg" width="140" alt="">
                     </td>

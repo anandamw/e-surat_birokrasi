@@ -12,7 +12,7 @@ Route::middleware(['guest'])->group(function () {
     })->name('login');
 
     Route::post('/login', [AuthController::class, 'login']);
-
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
     Route::get('/pengajuan', function () {
         return view('navigasi.pengajuan.pengajuan-view');

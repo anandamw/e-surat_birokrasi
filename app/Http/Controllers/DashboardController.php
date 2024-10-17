@@ -10,6 +10,6 @@ class DashboardController extends Controller
     {
 
 
-        return view('pages.dashboard ');
+        return view('navigasi.dashboard ');
     }
 }

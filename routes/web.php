@@ -1,58 +1,76 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 
-// Bagian Auth
-Route::get('/', function () {
-    return view('Auth.login');
+Route::middleware(['guest'])->group(function () {
+    // Bagian Auth
+    Route::get('/', function () {
+        return view('Auth.login');
+    })->name('login');
+
+    Route::post('/login', [AuthController::class, 'login']);
+
+
+    Route::get('/pengajuan', function () {
+        return view('navigasi.pengajuan.pengajuan-view');
+    });
+
+    Route::get('/rekap', function () {
+        return view('navigasi.rekapitulasi.rekapitulasi');
+    });
+
+    Route::get('/validator', function () {
+        return view('navigasi.validator.validator-view');
+    });
+
+    // Bagian Settings
+    Route::get('/settings', function () {
+        return view('settings.dashboard-settings');
+    });
+
+    Route::get('/settings/kategori', function () {
+        return view('settings.kategori.kategori-view');
+    });
+
+    Route::get('/settings/kategori_tambah', function () {
+        return view('settings.kategori.kategori-tambah');
+    });
+
+    Route::get('/settings/kategori_edit', function () {
+        return view('settings.kategori.kategori-edit');
+    });
+
+    Route::get('/settings/tipe', function () {
+        return view('settings.tipe_surat.tipe-view');
+    });
+
+    Route::get('/settings/tipe_tambah', function () {
+        return view('settings.tipe_surat.tipe-tambah');
+    });
+
+    Route::get('/settings/tipe_edit', function () {
+        return view('settings.tipe_surat.tipe-edit');
+    });
+
+    Route::get('/settings/pengabsahan', function () {
+        return view('settings.pengabsahan.pengabsahan-view');
+    });
 });
 
-// Bagian Navigasi
-Route::get('/dashboard', function () {
-    return view('navigasi.dashboard');
-});
 
-Route::get('/pengajuan', function () {
-    return view('navigasi.pengajuan.pengajuan-view');
-});
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/rekap', function () {
-    return view('navigasi.rekapitulasi.rekapitulasi');
-});
+    Route::get('/home', [AuthController::class, 'url']);
 
-Route::get('/validator', function () {
-    return view('navigasi.validator.validator-view');
-});
+    Route::middleware('UserAkses:admin')->group(function () {
+        Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+    });
 
-// Bagian Settings
-Route::get('/settings', function () {
-    return view('settings.dashboard-settings');
-});
-
-Route::get('/settings/kategori', function () {
-    return view('settings.kategori.kategori-view');
-});
-
-Route::get('/settings/kategori_tambah', function () {
-    return view('settings.kategori.kategori-tambah');
-});
-
-Route::get('/settings/kategori_edit', function () {
-    return view('settings.kategori.kategori-edit');
-});
-
-Route::get('/settings/tipe', function () {
-    return view('settings.tipe_surat.tipe-view');
-});
-
-Route::get('/settings/tipe_tambah', function () {
-    return view('settings.tipe_surat.tipe-tambah');
-});
-
-Route::get('/settings/tipe_edit', function () {
-    return view('settings.tipe_surat.tipe-edit');
-});
-
-Route::get('/settings/pengabsahan', function () {
-    return view('settings.pengabsahan.pengabsahan-view');
+    Route::middleware('UserAkses:verifier')->group(function () {
+        Route::get('/verifier/dashboard', [DashboardController::class, 'index']);
+    });
+    Route::get('logout', [AuthController::class, 'logout']);
 });

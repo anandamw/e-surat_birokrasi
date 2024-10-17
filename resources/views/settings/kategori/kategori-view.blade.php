@@ -107,7 +107,7 @@
             </div>
             <div class="modal-body py-4 px-5">
               <div class="mb-3"><label class="form-label" for="modal-auth-name">Nama
-                  Kategori</label><input class="form-control" type="text" autocomplete="on" id="modal-auth-name" />
+                  Kategori</label><input class="form-control" type="text" autocomplete="on" id="modal-auth-name" name="nama_kategori" />
               </div>
               <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
                   name="submit">Submit</button></div>

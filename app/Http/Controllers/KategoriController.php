@@ -3,61 +3,55 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use app\Http\Models\Kategori;
 
 class KategoriController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        
+
         return response()->json(auth()->user()->role);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $nama_kategori = $request->nama_kategori;
+
+        $request->validate([
+            'nama_kategori' => 'required|unique:kategori,nama_kategori'
+        ],[
+            'nama_kategori' => "Nama kategori $nama_kategori sudah di gunakan"
+        ]);
+
+        $token = uniqid();
+        $kode_kategori = $nama_kategori;
+
+        Kategori::create([
+            'token_kategori' => $token,
+            'nama_kategori' => $nama_kategori,
+            'kode_kategori' => $kode_kategori,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return redirect()->with();
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //

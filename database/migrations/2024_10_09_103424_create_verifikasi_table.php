@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('verifikasi', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_verifikasi')->primary();
+            $table->unsignedBigInteger('id_verifikasi')->autoIncrement();
             $table->string('token_verifikasi');
             // $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('pengabsahan_id');

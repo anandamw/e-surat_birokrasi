@@ -31,13 +31,9 @@ Route::middleware(['guest'])->group(function () {
         return view('settings.dashboard-settings');
     });
 
-    Route::get('/settings/kategori', function () {
-        return view('settings.kategori.kategori-view');
-    });
-
-    Route::get('/settings/kategori_tambah', function () {
-        return view('settings.kategori.kategori-tambah');
-    });
+    Route::get('/settings/kategori', [KategoriController::class, 'index']);
+    Route::post('/settings/kategori', [KategoriController::class, 'store']);
+    Route::post('/settings/kategori/{q}', [KategoriController::class, 'update']);
 
     Route::get('/settings/kategori_edit', function () {
         return view('settings.kategori.kategori-edit');

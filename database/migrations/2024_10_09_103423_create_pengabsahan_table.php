@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pengabsahan', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_pengabsahan')->primary();
+            $table->unsignedBigInteger('id_pengabsahan')->autoIncrement();
             $table->string('token_pengabsahan');
             // $table->unsignedBigInteger('user_id');
             $table->enum('jenis_ttd', ['basah', 'digital', 'pembubuhan']);

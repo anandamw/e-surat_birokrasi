@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('template_surat', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_template_surat')->primary();
+            $table->unsignedBigInteger('id_template_surat')->autoIncrement();
             $table->string('token_template');
             $table->string('file_template');
 

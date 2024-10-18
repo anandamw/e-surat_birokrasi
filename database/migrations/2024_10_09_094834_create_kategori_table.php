@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kategori', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_kategori')->primary();
+            $table->unsignedBigInteger('id_kategori')->autoIncrement();
             $table->string('token_kategori');
             $table->string('nama_kategori');
             $table->string('kode_kategori');

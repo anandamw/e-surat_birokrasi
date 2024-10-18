@@ -99,12 +99,13 @@
                                             @csrf
 
                                             <div class="mb-3"><label class="form-label" for="card-email">Email
-                                                    address</label><input class="form-control" id="card-email"
-                                                    type="email" /></div>
+                                                    address</label><input class="form-control" name="email"
+                                                    id="card-email" type="email" /></div>
                                             <div class="mb-3">
                                                 <div class="d-flex justify-content-between"><label class="form-label"
                                                         for="card-password">Password</label></div><input
-                                                    class="form-control" id="card-password" type="password" />
+                                                    class="form-control" name="password" id="card-password"
+                                                    type="password" />
                                             </div>
                                             <div class="row flex-between-center">
                                                 <div class="col-auto">
@@ -117,7 +118,7 @@
                                                         href="forgot-password.html">Forgot Password?</a></div>
                                             </div>
                                             <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3"
-                                                    type="submit" name="submit">Log in</button></div>
+                                                    type="submit">Log in</button></div>
                                         </form>
                                         <div class="position-relative mt-4">
                                             <hr />

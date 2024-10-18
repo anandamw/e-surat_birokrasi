@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        
+
 
         $data = [
             [
@@ -31,11 +31,9 @@ class UserSeeder extends Seeder
             ],
         ];
 
-        foreach($data as $item) {
+        foreach ($data as $item) {
 
             User::create($item);
-
         }
-
     }
 }

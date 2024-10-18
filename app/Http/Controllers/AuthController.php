@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
 
-  
+
 
     public function login(Request $request)
     {
-       
+
         $request->validate(
             [
                 "email" => "required|email",
@@ -25,49 +25,48 @@ class AuthController extends Controller
                 "password.min"      => "Password must be at least 8 characters long."
             ]
         );
-    
+
         $credentials = $request->only("email", "password");
-    
+
         if (Auth::attempt($credentials)) {
-          
+
             $user = Auth::user();
-    
-           
+
+
             if ($user->role == "admin") {
                 return redirect("/admin/dashboard")->with('success', 'Welcome Admin!');
             } elseif ($user->role == "verifier") {
                 return redirect("/verifier/dashboard")->with('success', 'Welcome Verifier!');
             } else {
-             
-                Auth::logout(); 
+
+                Auth::logout();
                 return redirect('/login')->with('error', 'Unauthorized access. You do not have the correct role.');
             }
         }
-    
-    
+
+
         return redirect('/login')->with('error', 'Invalid credentials. Please try again.');
     }
-    
 
-    public function logout(){
+
+    public function logout()
+    {
         Auth::logout();
 
         return redirect('/');
     }
 
-    public function url(){
+    public function url()
+    {
 
-        if(auth()->user()->role == "admin"){
+        if (auth()->user()->role == "admin") {
             return redirect("/admin/dashboard");
-        }elseif(auth()->user()->role == "verifier"){
+        } elseif (auth()->user()->role == "verifier") {
             return redirect("/verifier/dashboard");
-        }else{
+        } else {
             return response()->json([
                 "status" => false,
             ]);
         }
-
     }
-
-
 }

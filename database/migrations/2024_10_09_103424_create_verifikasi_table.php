@@ -15,12 +15,12 @@ return new class extends Migration
             $table->unsignedBigInteger('id_verifikasi')->autoIncrement();
             $table->string('token_verifikasi');
             // $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('pengabsahan_id');
+            $table->unsignedBigInteger('surat_id');
             $table->enum('status_verifikasi',['pending', 'disetujui', 'ditolak']);
             $table->timestamps();
 
             $table->foreignId('user_id')->constrained();
-            $table->foreign('pengabsahan_id')->references('id_pengabsahan')->on('pengabsahan')->onDelete('cascade');
+            $table->foreign('surat_id')->references('id_surat')->on('surat')->onDelete('cascade');
         });
     }
 

@@ -16,11 +16,15 @@ return new class extends Migration
             $table->string('token_surat');
             $table->unsignedBigInteger('mahasiswa_id');
             $table->unsignedBigInteger('tipe_surat_id');
+            $table->unsignedBigInteger('pengabsahan_id');
+            $table->enum('jenis_ttd', ['basah', 'digital', 'pembubuhan'])->default('basah');
+            $table->string('qrcode');
             $table->enum('status_surat',['draft', 'pengajuan', 'disteujui', 'ditolak'])->default('draft');
             $table->timestamps();
 
             $table->foreign('mahasiswa_id')->references('id_mahasiswa')->on('mahasiswa')->onDelete('cascade');
             $table->foreign('tipe_surat_id')->references('id_tipe_surat')->on('tipe_surat')->onDelete('cascade');
+            $table->foreign('pengabsahan_id')->references('id_pengabsahan')->on('pengabsahan')->onDelete('cascade');
         });
     }
 

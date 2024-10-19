@@ -15,7 +15,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_pengabsahan')->autoIncrement();
             $table->string('token_pengabsahan');
             // $table->unsignedBigInteger('user_id');
-            $table->enum('jenis_ttd', ['basah', 'digital', 'pembubuhan']);
             $table->string('ttd');
             $table->timestamps();
 

@@ -37,7 +37,7 @@ class KategoriController extends Controller
             'updated_at' => now()
         ]);
 
-        return redirect('/settings/kategori')->with(['success' => "Berhasil menambahkan Data $nama_kategori"]);
+        return redirect('/settings/kategori')->with(['create' => "Berhasil menambahkan Data $nama_kategori"]);
     }
 
     public function update(Request $request, $q)
@@ -60,7 +60,7 @@ class KategoriController extends Controller
             'updated_at' => now()
         ]);
 
-        return redirect('/settings/kategori')->with(['success' => "Berhasil mengedit Data $nama_kategori"]);
+        return redirect('/settings/kategori')->with(['edit' => "Berhasil mengedit Data $nama_kategori"]);
     }
 
     public function destroy($q)
@@ -72,8 +72,7 @@ class KategoriController extends Controller
             return redirect('/settings/kategori')->with(['error' => "Tidak dapat menghapus data "]);
         } else {
             $raw->delete();
+            return redirect('/settings/kategori')->with(['delete' => "Berhasil menghapus data "]);
         }
-
-        return redirect()->with();
     }
 }

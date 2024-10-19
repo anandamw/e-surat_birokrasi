@@ -34,10 +34,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/settings/kategori', [KategoriController::class, 'index']);
     Route::post('/settings/kategori', [KategoriController::class, 'store']);
     Route::post('/settings/kategori/{q}', [KategoriController::class, 'update']);
-
-    Route::get('/settings/kategori_edit', function () {
-        return view('settings.kategori.kategori-edit');
-    });
+    Route::get('/settings/kategori/{q}/del', [KategoriController::class, 'destroy']);
 
     Route::get('/settings/tipe', function () {
         return view('settings.tipe_surat.tipe-view');

@@ -28,17 +28,20 @@
                   </tr>
                 </thead>
                 <tbody class="list">
-                  <tr>
-                    <td class="no align-middle text-center align-middle">1</td>
-                    <td class="nama text-center text-break align-middle">Yosi Bagus</td>
-                    <td class="foto text-center align-middle"><img src="{{ asset('falcon') }}/ktp.jpg" width="140" alt="">
-                    </td>
-                    <td class="action text-center align-middle">
-                      <button class="btn btn-info me-1 mb-1" type="button" data-bs-toggle="modal"
-                        data-bs-target="#authentication-modal2"">Edit</button>
-                      <button class="btn btn-danger me-1 mb-1" type="button">Hapus</button>
-                    </td>
-                    <form action="">
+
+                  @foreach ($pengabsahan as $item)
+                    <tr>
+                      <td class="no align-middle text-center align-middle">1</td>
+                      <td class="nama text-center text-break align-middle">Yosi Bagus</td>
+                      <td class="foto text-center align-middle"><img src="{{ asset('falcon') }}/ktp.jpg" width="140" alt="">
+                      </td>
+                      <td class="action text-center align-middle">
+                        <button class="btn btn-info me-1 mb-1" type="button" data-bs-toggle="modal"
+                          data-bs-target="#authentication-modal2"">Edit</button>
+                        <button class="btn btn-danger me-1 mb-1" type="button">Hapus</button>
+                      </td>
+                    </tr>
+
                       <div class="modal fade" id="authentication-modal2" tabindex="-1" role="dialog"
                         aria-labelledby="authentication-modal-label" aria-hidden="true">
                         <div class="modal-dialog mt-6" role="document">
@@ -76,8 +79,8 @@
                           </div>
                         </div>
                       </div>
-                    </form>
-                  </tr>
+                  @endforeach
+
                 </tbody>
               </table>
             </div>
@@ -104,7 +107,7 @@
           aria-labelledby="tab-dom-5ab6a6c2-df09-43e8-ad96-79a7b5f6dea6" id="dom-5ab6a6c2-df09-43e8-ad96-79a7b5f6dea6">
         </div>
       </div>
-      <form action="">
+
         <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog"
           aria-labelledby="authentication-modal-label" aria-hidden="true">
           <div class="modal-dialog mt-6" role="document">
@@ -117,8 +120,15 @@
                   aria-label="Close"></button>
               </div>
               <div class="modal-body py-4 px-5">
-                <div class="mb-3"><label class="form-label" for="modal-auth-name">Nama Pengabsah</label><input
-                    class="form-control" type="text" autocomplete="on" id="modal-auth-name" /></div>
+                <div class="mb-3">
+                    <label class="form-label" for="modal-auth-name">Verifikator</label>
+                    <select name="verifikator" id="modal-auth-name" class="form-select">
+                        <option disabled selected>Pilih Verifikator</option>
+                        @foreach ($user as $unit)
+                            <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="hero">
                   <label for="input-file" id="drop-area">
                     <input type="file" accept="image/*" id="input-file" name="TTD" hidden>
@@ -140,7 +150,7 @@
             </div>
           </div>
         </div>
-      </form>
+
     </div>
   </div>
   <script>

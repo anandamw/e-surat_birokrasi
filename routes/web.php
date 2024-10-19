@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PengabsahanController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
@@ -48,9 +49,7 @@ Route::middleware(['guest'])->group(function () {
         return view('settings.tipe_surat.tipe-edit');
     });
 
-    Route::get('/settings/pengabsahan', function () {
-        return view('settings.pengabsahan.pengabsahan-view');
-    });
+    Route::get('/settings/pengabsahan', [PengabsahanController::class, 'index']);
 });
 
 

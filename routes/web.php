@@ -50,6 +50,7 @@ Route::middleware(['guest'])->group(function () {
     });
 
     Route::get('/settings/pengabsahan', [PengabsahanController::class, 'index']);
+    Route::post('/settings/pengabsahan', [PengabsahanController::class, 'store']);
 });
 
 

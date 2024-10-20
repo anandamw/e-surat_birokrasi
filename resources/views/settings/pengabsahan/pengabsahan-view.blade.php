@@ -31,9 +31,10 @@
 
                   @foreach ($pengabsahan as $item)
                     <tr>
-                      <td class="no align-middle text-center align-middle">1</td>
-                      <td class="nama text-center text-break align-middle">Yosi Bagus</td>
-                      <td class="foto text-center align-middle"><img src="{{ asset('falcon') }}/ktp.jpg" width="140" alt="">
+                      <td class="no align-middle text-center align-middle">{{ $loop->iteration }}</td>
+                      <td class="nama text-center text-break align-middle">{{ $item->user->name }}</td>
+                      <td class="foto text-center align-middle"><img src="{{ asset('ttd') }}/{{ $item->ttd }}" width="140"
+                          alt="">
                       </td>
                       <td class="action text-center align-middle">
                         <button class="btn btn-info me-1 mb-1" type="button" data-bs-toggle="modal"
@@ -42,43 +43,43 @@
                       </td>
                     </tr>
 
-                      <div class="modal fade" id="authentication-modal2" tabindex="-1" role="dialog"
-                        aria-labelledby="authentication-modal-label" aria-hidden="true">
-                        <div class="modal-dialog mt-6" role="document">
-                          <div class="modal-content border-0">
-                            <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
-                              <div class="position-relative z-1">
-                                <h4 class="mb-0 text-white" id="authentication-modal-label">Edit TTD</h4>
-                                <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini</p>
-                              </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2"
-                                data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal fade" id="authentication-modal2" tabindex="-1" role="dialog"
+                      aria-labelledby="authentication-modal-label" aria-hidden="true">
+                      <div class="modal-dialog mt-6" role="document">
+                        <div class="modal-content border-0">
+                          <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
+                            <div class="position-relative z-1">
+                              <h4 class="mb-0 text-white" id="authentication-modal-label">Edit TTD</h4>
+                              <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini</p>
+                            </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2"
+                              data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body py-4 px-5">
+                            <div class="mb-3"><label class="form-label" for="modal-auth-name">Nama
+                                Pengabsah</label><input class="form-control" value="Yosi Bagus" type="text"
+                                autocomplete="on" id="modal-auth-name" /></div>
+                            <div class="hero">
+                              <label for="input-file1" id="drop-area1">
+                                <input type="file" accept="image/*" id="input-file1" name="ttd1"
+                                  hidden>
+                                <div id="image-view1" class=" text-center pt-7">
+                                  {{-- <img src="{{ asset('falcon') }}/upload.png"> --}}
+                                  <p>Masukkan TTD</p>
+                                </div>
+                              </label>
                             </div>
-                            <div class="modal-body py-4 px-5">
-                              <div class="mb-3"><label class="form-label" for="modal-auth-name">Nama
-                                  Pengabsah</label><input class="form-control" value="Yosi Bagus" type="text"
-                                  autocomplete="on" id="modal-auth-name" /></div>
-                              <div class="hero">
-                                <label for="input-file" id="drop-area">
-                                  <input type="file" accept="image/*" id="input-file" name="TTD" value=""
-                                    hidden>
-                                  <div id="image-view" class=" text-center pt-7">
-                                    {{-- <img src="{{ asset('falcon') }}/upload.png"> --}}
-                                    <p>Masukkan TTD</p>
-                                  </div>
-                                </label>
-                              </div>
-                              <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
-                                  name="submit">Submit</button></div>
-                              <div class="position-relative mt-5">
-                                <hr />
-                                <div class="divider-content-center">Birokrasi E-Surat Uniba Madura</div>
-                              </div>
-                              <div class="row g-2 mt-2">
-                              </div>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
+                                name="submit">Submit</button></div>
+                            <div class="position-relative mt-5">
+                              <hr />
+                              <div class="divider-content-center">Birokrasi E-Surat Uniba Madura</div>
+                            </div>
+                            <div class="row g-2 mt-2">
                             </div>
                           </div>
                         </div>
                       </div>
+                    </div>
                   @endforeach
 
                 </tbody>
@@ -108,33 +109,41 @@
         </div>
       </div>
 
-        <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog"
-          aria-labelledby="authentication-modal-label" aria-hidden="true">
-          <div class="modal-dialog mt-6" role="document">
-            <div class="modal-content border-0">
-              <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
-                <div class="position-relative z-1">
-                  <h4 class="mb-0 text-white" id="authentication-modal-label">Form TTD</h4>
-                  <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini</p>
-                </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
-              </div>
-              <div class="modal-body py-4 px-5">
+      <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog"
+        aria-labelledby="authentication-modal-label" aria-hidden="true">
+        <div class="modal-dialog mt-6" role="document">
+          <div class="modal-content border-0">
+            <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
+              <div class="position-relative z-1">
+                <h4 class="mb-0 text-white" id="authentication-modal-label">Form TTD</h4>
+                <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini</p>
+              </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-4 px-5">
+              <form action="" method="POST" novalidate enctype="multipart/form-data">
+                @csrf
                 <div class="mb-3">
-                    <label class="form-label" for="modal-auth-name">Verifikator</label>
-                    <select name="verifikator" id="modal-auth-name" class="form-select">
-                        <option disabled selected>Pilih Verifikator</option>
-                        @foreach ($user as $unit)
-                            <option value="{{ $unit->id }}">{{ $unit->name }}</option>
-                        @endforeach
-                    </select>
+                  <label class="form-label" for="modal-auth-name">Verifikator</label>
+                  <select name="verifikator" id="modal-auth-name" class="form-select">
+                    <option disabled selected>Pilih Verifikator</option>
+                    @foreach ($user as $unit)
+                      <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                    @endforeach
+                  </select>
+                  @error('verifikator')
+                    <small class="text-danger">{{ $message }}</small>
+                  @enderror
                 </div>
                 <div class="hero">
                   <label for="input-file" id="drop-area">
-                    <input type="file" accept="image/*" id="input-file" name="TTD" hidden>
+                    <input type="file" accept="image/*" id="input-file" name="ttd" hidden>
                     <div id="image-view" class=" text-center pt-7">
                       {{-- <img src="{{ asset('falcon') }}/upload.png"> --}}
-                      <p>Masukkan TTD</p>
+                      <p>Masukkan TTD (.png)</p>
+                      @error('ttd')
+                        <small class="text-danger">{{ $message }}</small>
+                      @enderror
                     </div>
                   </label>
                 </div>
@@ -146,13 +155,23 @@
                 </div>
                 <div class="row g-2 mt-2">
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
+      </div>
 
     </div>
   </div>
+
+  @if ($errors->has('verifikator') || $errors->has('ttd'))
+    <script>
+      window.onload = function() {
+        var myModal = new bootstrap.Modal(document.getElementById('authentication-modal'));
+        myModal.show();
+      };
+    </script>
+  @endif
   <script>
     const dropArea = document.getElementById("drop-area");
     const inputFile = document.getElementById("input-file");

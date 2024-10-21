@@ -39,7 +39,8 @@
                       <td class="action text-center align-middle">
                         <button class="btn btn-info me-1 mb-1" type="button" data-bs-toggle="modal"
                           data-bs-target="#authentication-{{ $item->token_pengabsahan }}">Edit</button>
-                        <button class="btn btn-danger me-1 mb-1" type="button">Hapus</button>
+                        <a href="/settings/pengabsahan/{{ $item->token_pengabsahan }}/delete"
+                          class="btn btn-danger me-1 mb-1" type="button">Hapus</a>
                       </td>
                     </tr>
 
@@ -63,7 +64,8 @@
                                 <label class="form-label" for="modal-auth-name">Verifikator</label>
                                 <select name="verifikator" id="modal-auth-name" class="form-select">
                                   @foreach ($user as $unit)
-                                    <option value="{{ $unit->id }}" disabled {{ $item->user_id == $unit->id ? 'selected' : '' }}>{{ $unit->name }}</option>
+                                    <option value="{{ $unit->id }}" disabled
+                                      {{ $item->user_id == $unit->id ? 'selected' : '' }}>{{ $unit->name }}</option>
                                   @endforeach
                                 </select>
                               </div>
@@ -76,7 +78,9 @@
                                     style="background-image: url('/ttd/{{ $item->ttd }}')">
                                   </div>
                                 </label>
-                                <p>Klik gambar untuk mengubah</p>
+                                @if ($errors->has('ttd') && session()->get('token_pengabsahan') == $item->token_pengabsahan)
+                                  <small class="text-danger">{{ $errors->first('ttd') }}</small>
+                                @endif
                               </div>
                               <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
                                   name="submit">Submit</button></div>
@@ -140,7 +144,8 @@
                   <select name="verifikator" id="modal-auth-name" class="form-select">
                     <option disabled selected>Pilih Verifikator</option>
                     @foreach ($user as $unit)
-                      <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                      <option value="{{ $unit->id }}"
+                        {{ in_array($unit->id, $selectedVerifikator) ? 'disabled' : '' }}>{{ $unit->name }}</option>
                     @endforeach
                   </select>
                   @error('verifikator')
@@ -149,7 +154,7 @@
                 </div>
                 <div class="hero">
                   <label for="input-file" id="drop-area" class="drop-area">
-                    <input type="file" accept="image/*" id="input-file" name="ttd" hidden >
+                    <input type="file" accept="image/*" id="input-file" name="ttd" hidden>
                     <div id="image-view" class="image-view text-center pt-7">
                       {{-- <img src="{{ asset('falcon') }}/upload.png"> --}}
                       <p>Masukkan TTD (.png)</p>
@@ -176,7 +181,7 @@
     </div>
   </div>
 
-  @if ($errors->has('verifikator') || $errors->has('ttd'))
+  @if ($errors->has('verifikator') || $errors->has('ttd') && !session()->isStarted())
     <script>
       window.onload = function() {
         var myModal = new bootstrap.Modal(document.getElementById('authentication-modal'));
@@ -210,6 +215,14 @@
   </script>
 
   @foreach ($pengabsahan as $item)
+    @if ($errors->has('ttd') && (session()->get('token_pengabsahan') == $item->token_pengabsahan))
+      <script>
+        window.onload = function() {
+          var myModal = new bootstrap.Modal(document.getElementById('authentication-{{ $item->token_pengabsahan }}'));
+          myModal.show();
+        };
+      </script>
+    @endif
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         // Ambil elemen berdasarkan token_pengabsahan yang spesifik

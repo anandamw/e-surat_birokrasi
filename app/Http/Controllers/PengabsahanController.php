@@ -6,6 +6,7 @@ use App\Models\Pengabsahan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 class PengabsahanController extends Controller
 {
@@ -14,6 +15,7 @@ class PengabsahanController extends Controller
         $data = [
             'pengabsahan' => Pengabsahan::with('user')->get(),
             'user' => User::where('role', 'verifier')->get(),
+            'selectedVerifikator' => Pengabsahan::pluck('user_id')->toArray(),
         ];
 
         return view('settings.pengabsahan.pengabsahan-view', $data);
@@ -21,6 +23,7 @@ class PengabsahanController extends Controller
 
     public function store(Request $request)
     {
+        session()->flush();
         $request->validate([
             'verifikator' => 'required|unique:pengabsahan,user_id',
             'ttd' => 'required|mimes:png|max:2048',
@@ -57,11 +60,18 @@ class PengabsahanController extends Controller
         $user_name = User::where('id', $pengabsahan->user_id)->first()->name;
 
         if($request->hasFile('ttd')) {
-            $request->validate([
-                'ttd' => 'required|mimes:png|max:2048',
-            ], [
-                'ttd' => 'Tanda tangan harus berupa .png dan latar transparan max 2mb',
+            $validator = Validator::make($request->all(), [
+                'verifikator' => 'required',
+                'ttd' => 'nullable|image|mimes:png|max:2048', // Contoh validasi
             ]);
+
+            if ($validator->fails()) {
+                // Simpan token ke sesi agar bisa digunakan di view
+                session()->put('token_pengabsahan', $q);
+
+                // Kembali ke halaman sebelumnya dengan pesan error
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
 
             $file_name = 'ttd-'.$user_name.'.'.$ttd->getClientOriginalExtension();
 

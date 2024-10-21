@@ -33,18 +33,18 @@
                     <tr>
                       <td class="no align-middle text-center align-middle">{{ $loop->iteration }}</td>
                       <td class="nama text-center text-break align-middle">{{ $item->user->name }}</td>
-                      <td class="foto text-center align-middle"><img src="{{ asset('ttd') }}/{{ $item->ttd }}" width="140"
-                          alt="">
+                      <td class="foto text-center align-middle"><img src="{{ asset('ttd') }}/{{ $item->ttd }}"
+                          width="140" alt="">
                       </td>
                       <td class="action text-center align-middle">
                         <button class="btn btn-info me-1 mb-1" type="button" data-bs-toggle="modal"
-                          data-bs-target="#authentication-modal2"">Edit</button>
+                          data-bs-target="#authentication-{{ $item->token_pengabsahan }}">Edit</button>
                         <button class="btn btn-danger me-1 mb-1" type="button">Hapus</button>
                       </td>
                     </tr>
 
-                    <div class="modal fade" id="authentication-modal2" tabindex="-1" role="dialog"
-                      aria-labelledby="authentication-modal-label" aria-hidden="true">
+                    <div class="modal fade" id="authentication-{{ $item->token_pengabsahan }}" tabindex="-1"
+                      role="dialog" aria-labelledby="authentication-modal-label" aria-hidden="true">
                       <div class="modal-dialog mt-6" role="document">
                         <div class="modal-content border-0">
                           <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
@@ -55,27 +55,39 @@
                               data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body py-4 px-5">
-                            <div class="mb-3"><label class="form-label" for="modal-auth-name">Nama
-                                Pengabsah</label><input class="form-control" value="Yosi Bagus" type="text"
-                                autocomplete="on" id="modal-auth-name" /></div>
-                            <div class="hero">
-                              <label for="input-file1" id="drop-area1">
-                                <input type="file" accept="image/*" id="input-file1" name="ttd1"
-                                  hidden>
-                                <div id="image-view1" class=" text-center pt-7">
-                                  {{-- <img src="{{ asset('falcon') }}/upload.png"> --}}
-                                  <p>Masukkan TTD</p>
-                                </div>
-                              </label>
-                            </div>
-                            <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
-                                name="submit">Submit</button></div>
-                            <div class="position-relative mt-5">
-                              <hr />
-                              <div class="divider-content-center">Birokrasi E-Surat Uniba Madura</div>
-                            </div>
-                            <div class="row g-2 mt-2">
-                            </div>
+
+                            <form action="/settings/pengabsahan/{{ $item->token_pengabsahan }}" method="POST" novalidate
+                              enctype="multipart/form-data">
+                              @csrf
+                              <div class="mb-3">
+                                <label class="form-label" for="modal-auth-name">Verifikator</label>
+                                <select name="verifikator" id="modal-auth-name" class="form-select">
+                                  @foreach ($user as $unit)
+                                    <option value="{{ $unit->id }}" disabled {{ $item->user_id == $unit->id ? 'selected' : '' }}>{{ $unit->name }}</option>
+                                  @endforeach
+                                </select>
+                              </div>
+                              <div class="hero">
+                                <label for="input-file{{ $item->token_pengabsahan }}" id="drop-area"
+                                  class="drop-area{{ $item->token_pengabsahan }}">
+                                  <input type="file" accept="image/*" id="input-file{{ $item->token_pengabsahan }}"
+                                    name="ttd" hidden>
+                                  <div id="image-view" class=" image-view{{ $item->token_pengabsahan }} text-center pt-7"
+                                    style="background-image: url('/ttd/{{ $item->ttd }}')">
+                                  </div>
+                                </label>
+                                <p>Klik gambar untuk mengubah</p>
+                              </div>
+                              <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
+                                  name="submit">Submit</button></div>
+                              <div class="position-relative mt-5">
+                                <hr />
+                                <div class="divider-content-center">Birokrasi E-Surat Uniba Madura</div>
+                              </div>
+                              <div class="row g-2 mt-2">
+                              </div>
+                            </form>
+
                           </div>
                         </div>
                       </div>
@@ -136,9 +148,9 @@
                   @enderror
                 </div>
                 <div class="hero">
-                  <label for="input-file" id="drop-area">
-                    <input type="file" accept="image/*" id="input-file" name="ttd" hidden>
-                    <div id="image-view" class=" text-center pt-7">
+                  <label for="input-file" id="drop-area" class="drop-area">
+                    <input type="file" accept="image/*" id="input-file" name="ttd" hidden >
+                    <div id="image-view" class="image-view text-center pt-7">
                       {{-- <img src="{{ asset('falcon') }}/upload.png"> --}}
                       <p>Masukkan TTD (.png)</p>
                       @error('ttd')
@@ -173,27 +185,62 @@
     </script>
   @endif
   <script>
-    const dropArea = document.getElementById("drop-area");
-    const inputFile = document.getElementById("input-file");
-    const imgView = document.getElementById("image-view");
+    const drop_area = document.querySelector(".drop-area");
+    const input_file = document.getElementById("input-file");
+    const img_view = document.querySelector(".image-view");
 
-    inputFile.addEventListener("change", uploadImage);
+    input_file.addEventListener("change", uploadImage);
 
     function uploadImage() {
-      let imgLink = URL.createObjectURL(inputFile.files[0]);
-      imgView.style.backgroundImage = `url(${imgLink})`;
-      imgView.textContent = "";
-      imgView.style.border = 0;
+      let imgLink = URL.createObjectURL(input_file.files[0]);
+      img_view.style.backgroundImage = `url(${imgLink})`;
+      img_view.textContent = "";
+      img_view.style.border = 0;
     }
 
-    dropArea.addEventListener("dragover", function(e) {
+    drop_area.addEventListener("dragover", function(e) {
       e.preventDefault();
     });
 
-    dropArea.addEventListener("drop", function(e) {
+    drop_area.addEventListener("drop", function(e) {
       e.preventDefault();
-      inputFile.files = e.dataTransfer.files;
+      input_file.files = e.dataTransfer.files;
       uploadImage();
     });
   </script>
+
+  @foreach ($pengabsahan as $item)
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Ambil elemen berdasarkan token_pengabsahan yang spesifik
+        const dropArea = document.querySelector(".drop-area{{ $item->token_pengabsahan }}");
+        const inputFile = document.getElementById("input-file{{ $item->token_pengabsahan }}");
+        const imgView = document.querySelector(".image-view{{ $item->token_pengabsahan }}");
+
+        // Event listener untuk perubahan file input
+        inputFile.addEventListener("change", function() {
+          uploadImage(inputFile, imgView);
+        });
+
+        // Fungsi untuk mengunggah dan menampilkan preview gambar
+        function uploadImage(input, imgElement) {
+          let imgLink = URL.createObjectURL(input.files[0]);
+          imgElement.style.backgroundImage = `url(${imgLink})`;
+          imgElement.textContent = ""; // Hapus teks placeholder
+          imgElement.style.border = 0; // Hapus border
+        }
+
+        // Event listener untuk drag-and-drop
+        dropArea.addEventListener("dragover", function(e) {
+          e.preventDefault(); // Mencegah perilaku default saat drag
+        });
+
+        dropArea.addEventListener("drop", function(e) {
+          e.preventDefault();
+          inputFile.files = e.dataTransfer.files; // Set file yang di-drop ke input file
+          uploadImage(inputFile, imgView); // Panggil fungsi untuk update preview gambar
+        });
+      });
+    </script>
+  @endforeach
 @endsection

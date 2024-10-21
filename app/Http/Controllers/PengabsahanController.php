@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengabsahan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PengabsahanController extends Controller
 {
@@ -48,13 +49,45 @@ class PengabsahanController extends Controller
         return redirect('/settings/pengabsahan')->with(['create' => "TTD $user_name berhasil  ditambahkan"]);
     }
 
-    public function update(Request $request, Pengabsahan $pengabsahan)
+    public function update(Request $request, $q)
     {
-        //
+        $ttd = $request->file('ttd');
+        $pengabsahan = Pengabsahan::where('token_pengabsahan', $q)->first();
+        $token = uniqid();
+        $user_name = User::where('id', $pengabsahan->user_id)->first()->name;
+
+        if($request->hasFile('ttd')) {
+            $request->validate([
+                'ttd' => 'required|mimes:png|max:2048',
+            ], [
+                'ttd' => 'Tanda tangan harus berupa .png dan latar transparan max 2mb',
+            ]);
+
+            $file_name = 'ttd-'.$user_name.'.'.$ttd->getClientOriginalExtension();
+
+            $ttd->move('ttd', $file_name);
+            File::delete("ttd/$pengabsahan->ttd");
+        } else{
+            $file_name = $pengabsahan->ttd;
+        }
+
+        Pengabsahan::where('id_pengabsahan', $pengabsahan->id_pengabsahan)->update([
+            'token_pengabsahan' => $token,
+            'ttd' => $file_name,
+            'updated_at' => now(),
+        ]);
+
+        return redirect('/settings/pengabsahan')->with(['edit' => "TTD $user_name berhasil  ditambahkan"]);
     }
 
-    public function destroy(Pengabsahan $pengabsahan)
+    public function destroy($q)
     {
-        //
+        $raw = Pengabsahan::where('token_pengabsahan', $q);
+
+        File::delete('ttd/'.$raw->first()->ttd);
+
+        $raw->delete();
+
+        return redirect('/settings/pengabsahan')->with(['delete' => "Data berhasil di hapus"]);
     }
 }

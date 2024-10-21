@@ -17,15 +17,20 @@ class UserSeeder extends Seeder
 
         $data = [
             [
-
                 "name" => "admin",
                 "email" => "admin@gmail.com",
                 "password" => bcrypt(12345678),
                 "role" => "admin"
             ],
             [
-                "name" => "verifier",
-                "email" => "verifier@gmail.com",
+                "name" => "verifier1",
+                "email" => "verifier1@gmail.com",
+                "password" => bcrypt(12345678),
+                "role" => "verifier"
+            ],
+            [
+                "name" => "verifier2",
+                "email" => "verifier2@gmail.com",
                 "password" => bcrypt(12345678),
                 "role" => "verifier"
             ],

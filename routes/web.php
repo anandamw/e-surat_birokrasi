@@ -51,6 +51,8 @@ Route::middleware(['guest'])->group(function () {
 
     Route::get('/settings/pengabsahan', [PengabsahanController::class, 'index']);
     Route::post('/settings/pengabsahan', [PengabsahanController::class, 'store']);
+    Route::post('/settings/pengabsahan/{q}', [PengabsahanController::class, 'update']);
+    Route::get('/settings/pengabsahan/{q}/delete', [PengabsahanController::class, 'destroy']);
 });
 
 

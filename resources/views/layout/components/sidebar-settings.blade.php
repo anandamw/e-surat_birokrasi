@@ -70,6 +70,14 @@
               <span class="nav-link-text ps-1">Pengabsahan</span>
             </div>
           </a>
+          <a class="nav-link" href="/settings/fakultas">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon">
+                <span class="fas fa-file-signature"></span>
+              </span>
+              <span class="nav-link-text ps-1">Fakultas</span>
+            </div>
+          </a>
           <!-- parent pages-->
         </li>
         <li class="nav-item">

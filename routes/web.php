@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengabsahanController;
+use App\Http\Controllers\FakultasController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
@@ -53,6 +54,11 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/settings/pengabsahan', [PengabsahanController::class, 'store']);
     Route::post('/settings/pengabsahan/{q}', [PengabsahanController::class, 'update']);
     Route::get('/settings/pengabsahan/{q}/delete', [PengabsahanController::class, 'destroy']);
+
+    Route::get('/settings/fakultas', [FakultasController::class, 'index']);
+    Route::post('/settings/fakultas', [FakultasController::class, 'store']);
+    Route::post('/settings/fakultas/{q}', [FakultasController::class, 'update']);
+    Route::get('/settings/fakultas/{q}/delete', [FakultasController::class, 'destroy']);
 });
 
 

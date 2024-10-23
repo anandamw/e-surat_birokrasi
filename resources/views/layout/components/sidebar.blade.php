@@ -55,14 +55,16 @@
             </div>
           </a>
           <ul class="nav collapse" id="pengajuan">
-            <li class="nav-item">
-              <a class="nav-link" href="/pengajuan">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-text ps-1">Surat Edaran</span>
-                </div>
-              </a>
-              <!-- more inner pages-->
-            </li>
+            @foreach (kategori() as $item)
+                <li class="nav-item">
+                  <a class="nav-link" href="/pengajuan/{{ $item->token_kategori }}">
+                    <div class="d-flex align-items-center">
+                      <span class="nav-link-text ps-1">{{ $item->nama_kategori }}</span>
+                    </div>
+                  </a>
+                  <!-- more inner pages-->
+                </li>
+            @endforeach
           </ul><!-- parent pages-->
           <a class="nav-link" href="/rekap">
             <div class="d-flex align-items-center">

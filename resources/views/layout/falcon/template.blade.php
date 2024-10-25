@@ -1066,7 +1066,7 @@
         </div>
       </nav>
 
-      @if (Request::is('settings*'))
+      @if (Request::is('settings*') || Request::is('admin/settings'))
         @include('layout.components.sidebar-settings')
       @else
         @include('layout.components.sidebar')

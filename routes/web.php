@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengabsahanController;
 use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\TemplateSurat\TestingTemp;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
@@ -50,6 +51,10 @@ Route::middleware(['guest'])->group(function () {
         return view('settings.tipe_surat.tipe-edit');
     });
 
+    Route::get('/test', function(){
+        return view('preview-docx');
+    });
+
     Route::get('/settings/pengabsahan', [PengabsahanController::class, 'index']);
     Route::post('/settings/pengabsahan', [PengabsahanController::class, 'store']);
     Route::post('/settings/pengabsahan/{q}', [PengabsahanController::class, 'update']);
@@ -74,4 +79,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/verifier/dashboard', [DashboardController::class, 'index']);
     });
     Route::get('logout', [AuthController::class, 'logout']);
+
+    Route::get('/admin/settings', function(){
+        return view('settings.dashboard-settings');
+    });
 });

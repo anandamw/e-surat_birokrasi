@@ -77,7 +77,7 @@
         </li>
         <li class="nav-item">
           <div class="settings mb-3 position-absolute start-0 bottom-0">
-            <a class=" nav-link" type="button" aria-expanded="false" href="/settings">
+            <a class=" nav-link" type="button" aria-expanded="false" href="{{ auth()->user()->role == 'admin' ? '/admin/settings' : '/settings' }}">
               <div class="d-flex align-items-center">
                 <span class="nav-link-icon">
                   <span class="fas fa-cog"></span>

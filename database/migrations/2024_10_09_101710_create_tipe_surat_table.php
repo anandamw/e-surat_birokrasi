@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('token_tipe_surat');
             $table->unsignedBigInteger('kategori_id');
             $table->string('nama_tipe_surat');
-
+            $table->string('nama_file');
             $table->foreign('kategori_id')->references('id_kategori')->on('kategori')->onDelete('cascade');
             $table->timestamps();
         });

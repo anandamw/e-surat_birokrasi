@@ -6,6 +6,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengabsahanController;
 use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\TemplateSurat\TestingTemp;
+use App\Http\Controllers\TipeSuratController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
@@ -39,9 +40,9 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/settings/kategori/{q}', [KategoriController::class, 'update']);
     Route::get('/settings/kategori/{q}/del', [KategoriController::class, 'destroy']);
 
-    Route::get('/settings/tipe', function () {
-        return view('settings.tipe_surat.tipe-view');
-    });
+    Route::get('/settings/tipe', [TipeSuratController::class, "index"]);
+    Route::post('/settings/tipe/store', [TipeSuratController::class, "store"]);
+    Route::post('/settings/tipe/{id}/update', [TipeSuratController::class, "update"]);
 
     Route::get('/settings/tipe_tambah', function () {
         return view('settings.tipe_surat.tipe-tambah');
@@ -51,7 +52,7 @@ Route::middleware(['guest'])->group(function () {
         return view('settings.tipe_surat.tipe-edit');
     });
 
-    Route::get('/test', function(){
+    Route::get('/test', function () {
         return view('preview-docx');
     });
 
@@ -80,7 +81,7 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::get('logout', [AuthController::class, 'logout']);
 
-    Route::get('/admin/settings', function(){
+    Route::get('/admin/settings', function () {
         return view('settings.dashboard-settings');
     });
 });

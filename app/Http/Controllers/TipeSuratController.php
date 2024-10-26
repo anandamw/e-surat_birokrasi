@@ -2,64 +2,70 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\TipeSurat;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class TipeSuratController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $kategori = TipeSurat::join('kategori', 'tipe_surat.kategori_id', '=', 'kategori.id_kategori')->get();
+        $getKategori = Kategori::all();
+        return view('settings.tipe_surat.tipe-view', compact('kategori', 'getKategori'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $data = [
+            "token_tipe_surat" => Str::random(6),
+            "kategori_id" => $request->kategori_id,
+            "nama_tipe_surat" => $request->nama_tipe_surat,
+            "nama_file" => $request->nama_file
+        ];
+
+        TipeSurat::create($data);
+        return response()->json('success');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(TipeSurat $tipeSurat)
+    public function edit($id)
     {
-        //
+        $tipeSurat = TipeSurat::find($id);
+        if ($tipeSurat) {
+            return response()->json($tipeSurat);
+        } else {
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(TipeSurat $tipeSurat)
+
+    public function update(Request $request, $id)
     {
-        //
+        dd($request->all());
+
+        $tipeSurat = TipeSurat::find($id);
+        if ($tipeSurat) {
+            $tipeSurat->update([
+                "kategori_id" => $request->kategori_id,
+                "nama_tipe_surat" => $request->nama_tipe_surat,
+                "nama_file" => $request->nama_file
+            ]);
+            return response()->json('success');
+        } else {
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, TipeSurat $tipeSurat)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(TipeSurat $tipeSurat)
-    {
-        //
+        $tipeSurat = TipeSurat::find($id);
+        if ($tipeSurat) {
+            $tipeSurat->delete();
+            return response()->json('success');
+        } else {
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+        }
     }
 }

@@ -64,34 +64,43 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', [AuthController::class, 'url']);
 
+    // role admin
     Route::middleware('UserAkses:admin')->group(function () {
         Route::get('dashboard/admin', [DashboardController::class, 'index']);
         Route::get('settings/admin', function () {
             return view('settings.dashboard-settings');
         });
 
+        // tipe surat
+        Route::get('/settings/admin/tipe', [TipeSuratController::class, "index"]);
+        Route::post('/settings/admin/tipe/store', [TipeSuratController::class, "store"]);
+        Route::post('/settings/admin/tipe/{id}/update', [TipeSuratController::class, "update"]);
+        Route::get('/settings/admin/tipe/{id}/delete', [TipeSuratController::class, "destroy"]);
+
+        // kategori surat
         Route::get('/settings/admin/kategori', [KategoriController::class, 'index']);
         Route::post('/settings/admin/kategori', [KategoriController::class, 'store']);
         Route::post('/settings/admin/kategori/{q}', [KategoriController::class, 'update']);
         Route::get('/settings/admin/kategori/{q}/del', [KategoriController::class, 'destroy']);
 
-        Route::get('/settings/admin/tipe', [TipeSuratController::class, "index"]);
-        Route::post('/settings/admin/tipe/store', [TipeSuratController::class, "store"]);
-        Route::post('/settings/admin/tipe/{id}/update', [TipeSuratController::class, "update"]);
-
+        // pengabsahan
         Route::get('/settings/admin/pengabsahan', [PengabsahanController::class, 'index']);
         Route::post('/settings/admin/pengabsahan', [PengabsahanController::class, 'store']);
         Route::post('/settings/admin/pengabsahan/{q}', [PengabsahanController::class, 'update']);
         Route::get('/settings/admin/pengabsahan/{q}/delete', [PengabsahanController::class, 'destroy']);
 
+        // fakultas
         Route::get('/settings/admin/fakultas', [FakultasController::class, 'index']);
         Route::post('/settings/admin/fakultas', [FakultasController::class, 'store']);
         Route::post('/settings/admin/fakultas/{q}', [FakultasController::class, 'update']);
         Route::get('/settings/admin/fakultas/{q}/delete', [FakultasController::class, 'destroy']);
     });
 
+    // role verifier
     Route::middleware('UserAkses:verifier1')->group(function () {
         Route::get('/verifier1/dashboard', [DashboardController::class, 'index']);
     });
+
+    // logout
     Route::get('logout', [AuthController::class, 'logout']);
 });

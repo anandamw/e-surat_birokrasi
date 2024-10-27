@@ -26,7 +26,7 @@ class TipeSuratController extends Controller
         ];
 
         TipeSurat::create($data);
-        return response()->json('success');
+        return redirect('/settings/'. auth()->user()->role .'/tipe');
     }
 
 
@@ -42,15 +42,17 @@ class TipeSuratController extends Controller
         ];
 
         TipeSurat::where('id_tipe_surat', $id)->update($data);
-        return redirect('/settings');
+        return redirect('/settings/'. auth()->user()->role .'/tipe');
+
     }
 
     public function destroy($id)
     {
-        $tipeSurat = TipeSurat::find($id);
+        $tipeSurat = TipeSurat::where('id_tipe_surat',$id);
         if ($tipeSurat) {
             $tipeSurat->delete();
-            return response()->json('success');
+            return redirect('/settings/'. auth()->user()->role .'/tipe');
+
         } else {
             return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }

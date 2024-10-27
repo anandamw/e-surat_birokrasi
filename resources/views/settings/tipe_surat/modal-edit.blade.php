@@ -12,7 +12,7 @@
                 </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <form action="/settings/tipe/{{ $item->id_tipe_surat }}/update" method="POST">
+            <form action="/settings/{{ auth()->user()->role }}/tipe/{{ $item->id_tipe_surat }}/update" method="POST">
                 @csrf
                 <div class="modal-body py-4 px-5">
                     <div class="mb-3"><label class="form-label" for="modal-auth-name">Tipe Surat</label><input

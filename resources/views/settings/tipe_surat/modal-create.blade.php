@@ -1,17 +1,18 @@
    {{-- form tambah --}}
-   <form action="/settings/tipe/store" method="POST" enctype="multipart/form-data">
-       @csrf
-       <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog"
-           aria-labelledby="authentication-modal-label" aria-hidden="true">
-           <div class="modal-dialog mt-6" role="document">
-               <div class="modal-content border-0">
-                   <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
-                       <div class="position-relative z-1">
-                           <h4 class="mb-0 text-white" id="authentication-modal-label">Tambah Tipe Surat</h4>
-                           <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini</p>
-                       </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal"
-                           aria-label="Close"></button>
-                   </div>
+   <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog"
+       aria-labelledby="authentication-modal-label" aria-hidden="true">
+       <div class="modal-dialog mt-6" role="document">
+           <div class="modal-content border-0">
+               <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
+                   <div class="position-relative z-1">
+                       <h4 class="mb-0 text-white" id="authentication-modal-label">Tambah Tipe Surat</h4>
+                       <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini</p>
+                   </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal"
+                       aria-label="Close"></button>
+               </div>
+               <form action="/settings/{{ auth()->user()->role }}/tipe/store" method="POST"
+                   enctype="multipart/form-data">
+                   @csrf
                    <div class="modal-body py-4 px-5">
                        <div class="mb-3">
                            <label class="form-label" for="modal-auth-name">Tipe Surat</label>
@@ -28,9 +29,11 @@
                            <select class="form-select" name="kategori_id" id="basic-form-name"
                                aria-label="Default select example">
                                <option selected="selected">Pilih Kategori Surat</option>
-                               @foreach ($kategori as $item)
+
+                               @foreach ($getKategori as $item)
                                    <option value="{{ $item->id_kategori }}">{{ $item->nama_kategori }}</option>
                                @endforeach
+
                            </select>
                        </div>
                        <div class="mb-3">
@@ -43,8 +46,7 @@
                        <div class="row g-2 mt-2">
                        </div>
                    </div>
-               </div>
+               </form>
            </div>
        </div>
-   </form>
- 
+   </div>

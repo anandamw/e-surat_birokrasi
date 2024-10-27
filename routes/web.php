@@ -5,6 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengabsahanController;
 use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\RekapitulasiController;
 use App\Http\Controllers\TemplateSurat\TestingTemp;
 use App\Http\Controllers\TipeSuratController;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +72,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('settings/admin', function () {
             return view('settings.dashboard-settings');
         });
+
+        // Pengajuan 
+        Route::get('/pengajuan/{token}/admin', [PengajuanController::class, "index"]);
+
+        // Rekapitulasi 
+        Route::get('/rekap/admin', [RekapitulasiController::class, "index"]);
+
+
 
         // tipe surat
         Route::get('/settings/admin/tipe', [TipeSuratController::class, "index"]);

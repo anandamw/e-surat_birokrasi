@@ -95,12 +95,14 @@
                                             </div>
                                         </div>
 
-                                        <form action="/login" method="POST">
+                                        <form action="/login" method="post">
                                             @csrf
 
                                             <div class="mb-3"><label class="form-label" for="card-email">Email
-                                                    address</label><input class="form-control" name="email"
-                                                    id="card-email" type="email" /></div>
+                                                    address</label>
+                                                <input class="form-control" name="email" id="card-email"
+                                                    type="email" />
+                                            </div>
                                             <div class="mb-3">
                                                 <div class="d-flex justify-content-between"><label class="form-label"
                                                         for="card-password">Password</label></div><input

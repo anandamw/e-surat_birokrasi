@@ -37,76 +37,34 @@
                                             <td class="action text-center align-middle">
                                                 <button class="btn btn-info me-1 mb-1" ype="button" data-bs-toggle="modal"
                                                     data-bs-target="#authentication-modal2{{ $item->id_tipe_surat }}">Edit</button>
-                                                <button class="btn btn-danger me-1 mb-1" type="button">Hapus</button>
+                                                <button class="btn btn-danger me-1 mb-1" type="button"
+                                                    data-bs-target="#exampleModal{{ $item->id_tipe_surat }}"
+                                                    data-bs-toggle="modal">Hapus</button>
                                             </td>
-
-                                            {{-- form edit data --}}
-                                            <form action="/settings/tipe/{{ $item->id_tipe_surat }}/update" method="POST">
-                                                @csrf
-                                                <div class="modal fade" id="authentication-modal2{{ $item->id_tipe_surat }}"
-                                                    tabindex="-1" role="dialog"
-                                                    aria-labelledby="authentication-modal-label" aria-hidden="true">
-                                                    <div class="modal-dialog mt-6" role="document">
-                                                        <div class="modal-content border-0">
-                                                            <div
-                                                                class="modal-header px-5 position-relative modal-shape-header bg-shape">
-                                                                <div class="position-relative z-1">
-                                                                    <h4 class="mb-0 text-white"
-                                                                        id="authentication-modal-label">
-                                                                        Edit Tipe Surat</h4>
-                                                                    <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini
-                                                                    </p>
-                                                                </div><button
-                                                                    class="btn-close position-absolute top-0 end-0 mt-2 me-2"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body py-4 px-5">
-                                                                <div class="mb-3"><label class="form-label"
-                                                                        for="modal-auth-name">Tipe Surat</label><input
-                                                                        class="form-control" type="text"
-                                                                        name="nama_tipe_surat"
-                                                                        value="{{ $item->nama_tipe_surat }}"
-                                                                        autocomplete="on" id="modal-auth-name" />
-                                                                </div>
-                                                                <div class="mb-3"><label class="form-label"
-                                                                        for="modal-auth-name">File</label>
-                                                                    <input class="form-control" type="text"
-                                                                        value="{{ $item->nama_file }}" name="nama_file"
-                                                                        autocomplete="on" id="modal-auth-name" />
-                                                                </div>
-                                                                <div class="mb-3"><label class="form-label"
-                                                                        for="basic-form-name">Pilih Kategori
-                                                                        Surat</label><select class="form-select"
-                                                                        id="basic-form-name"
-                                                                        aria-label="Default select example">
-                                                                        <option selected="selected">Pilih Kategori Surat
-                                                                        </option>
-
-                                                                        @foreach ($getKategori as $get)
-                                                                            <option value="{{ $get->id_kategori }}"
-                                                                                {{ $get->id_kategori == $item->kategori_id ? 'selected' : '' }}>
-                                                                                {{ $get->nama_kategori }}
-                                                                            </option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary d-block w-100 mt-3">Submit</button>
-                                                                </div>
-                                                                <div class="position-relative mt-5">
-                                                                    <hr />
-                                                                    <div class="divider-content-center">Birokrasi E-Surat
-                                                                        Uniba
-                                                                        Madura</div>
-                                                                </div>
-                                                                <div class="row g-2 mt-2">
-                                                                </div>
-                                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal{{ $item->id_tipe_surat }}"
+                                                tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ...
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save
+                                                                changes</button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </div>
+
+                                            @include('settings.tipe_surat.modal-edit')
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -138,54 +96,6 @@
             </div>
         </div>
 
-        {{-- form tambah --}}
-        <form action="/settings/tipe/store" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog"
-                aria-labelledby="authentication-modal-label" aria-hidden="true">
-                <div class="modal-dialog mt-6" role="document">
-                    <div class="modal-content border-0">
-                        <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
-                            <div class="position-relative z-1">
-                                <h4 class="mb-0 text-white" id="authentication-modal-label">Tambah Tipe Surat</h4>
-                                <p class="fs-10 mb-0 text-white">Isi Form Dibawah Ini</p>
-                            </div><button class="btn-close position-absolute top-0 end-0 mt-2 me-2"
-                                data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body py-4 px-5">
-                            <div class="mb-3">
-                                <label class="form-label" for="modal-auth-name">Tipe Surat</label>
-                                <input class="form-control" type="text" name="nama_tipe_surat" autocomplete="on"
-                                    id="modal-auth-name" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="modal-auth-name">File</label>
-                                <input class="form-control" type="text" name="nama_file" autocomplete="on"
-                                    id="modal-auth-name" />
-                            </div>
-                            <div class="mb-3"><label class="form-label" for="basic-form-name">Pilih Kategori
-                                    Surat</label>
-                                <select class="form-select" name="kategori_id" id="basic-form-name"
-                                    aria-label="Default select example">
-                                    <option selected="selected">Pilih Kategori Surat</option>
-                                    @foreach ($kategori as $item)
-                                        <option value="{{ $item->id_kategori }}">{{ $item->nama_kategori }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <button class="btn btn-primary d-block w-100 mt-3" type="submit">Submit</button>
-                            </div>
-                            <div class="position-relative mt-5">
-                                <hr />
-                                <div class="divider-content-center">Birokrasi E-Surat Uniba Madura</div>
-                            </div>
-                            <div class="row g-2 mt-2">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+        @include('settings.tipe_surat.modal-create')
     </div>
 @endsection

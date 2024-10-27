@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fakultas;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class FakultasController extends Controller
@@ -10,7 +11,9 @@ class FakultasController extends Controller
 
     public function index()
     {
-        return view('settings.fakultas.fakultas-view');
+        $fakultas = Fakultas::all();
+
+        return view('settings.fakultas.fakultas-view', compact('fakultas'));
     }
 
     /**
@@ -26,31 +29,35 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $token = Str::random(8);
+        $fakultas = $request->nama_fakultas;
+        $kode = $token . '_' . $fakultas . '_UNIBA_MADURA';
+
+        $data = [
+            'token_fakultas' => $token,
+            'nama_fakultas' => $fakultas,
+            'kode_fakultas' => $kode
+        ];
+
+        Fakultas::create($data);
+        return redirect('/settings/fakultas');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Fakultas $fakultas)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Fakultas $fakultas)
+    public function update(Request $request, $q)
     {
-        //
-    }
+        $token = Str::random(8);
+        $fakultas = $request->nama_fakultas;
+        $kode = $token . '_' . $fakultas . '_UNIBA_MADURA';
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Fakultas $fakultas)
-    {
-        //
+        $data = [
+            'token_fakultas' => $token,
+            'nama_fakultas' => $fakultas,
+            'kode_fakultas' => $kode
+        ];
+
+        Fakultas::where('id_fakultas', $q)->update($data);
+        return redirect('/settings/fakultas');
     }
 
     /**

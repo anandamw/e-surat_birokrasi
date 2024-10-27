@@ -31,9 +31,9 @@ Route::middleware(['guest'])->group(function () {
     });
 
     // Bagian Settings
-    Route::get('/settings', function () {
-        return view('settings.dashboard-settings');
-    });
+    // Route::get('/settings', function () {
+    //     return view('settings.dashboard-settings');
+    // });
 
     Route::get('/settings/kategori', [KategoriController::class, 'index']);
     Route::post('/settings/kategori', [KategoriController::class, 'store']);
@@ -43,14 +43,6 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/settings/tipe', [TipeSuratController::class, "index"]);
     Route::post('/settings/tipe/store', [TipeSuratController::class, "store"]);
     Route::post('/settings/tipe/{id}/update', [TipeSuratController::class, "update"]);
-
-    Route::get('/settings/tipe_tambah', function () {
-        return view('settings.tipe_surat.tipe-tambah');
-    });
-
-    Route::get('/settings/tipe_edit', function () {
-        return view('settings.tipe_surat.tipe-edit');
-    });
 
     Route::get('/test', function () {
         return view('preview-docx');
@@ -73,15 +65,33 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [AuthController::class, 'url']);
 
     Route::middleware('UserAkses:admin')->group(function () {
-        Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+        Route::get('dashboard/admin', [DashboardController::class, 'index']);
+        Route::get('settings/admin', function () {
+            return view('settings.dashboard-settings');
+        });
+
+        Route::get('/settings/admin/kategori', [KategoriController::class, 'index']);
+        Route::post('/settings/admin/kategori', [KategoriController::class, 'store']);
+        Route::post('/settings/admin/kategori/{q}', [KategoriController::class, 'update']);
+        Route::get('/settings/admin/kategori/{q}/del', [KategoriController::class, 'destroy']);
+
+        Route::get('/settings/admin/tipe', [TipeSuratController::class, "index"]);
+        Route::post('/settings/admin/tipe/store', [TipeSuratController::class, "store"]);
+        Route::post('/settings/admin/tipe/{id}/update', [TipeSuratController::class, "update"]);
+
+        Route::get('/settings/admin/pengabsahan', [PengabsahanController::class, 'index']);
+        Route::post('/settings/admin/pengabsahan', [PengabsahanController::class, 'store']);
+        Route::post('/settings/admin/pengabsahan/{q}', [PengabsahanController::class, 'update']);
+        Route::get('/settings/admin/pengabsahan/{q}/delete', [PengabsahanController::class, 'destroy']);
+
+        Route::get('/settings/admin/fakultas', [FakultasController::class, 'index']);
+        Route::post('/settings/admin/fakultas', [FakultasController::class, 'store']);
+        Route::post('/settings/admin/fakultas/{q}', [FakultasController::class, 'update']);
+        Route::get('/settings/admin/fakultas/{q}/delete', [FakultasController::class, 'destroy']);
     });
 
-    Route::middleware('UserAkses:verifier')->group(function () {
-        Route::get('/verifier/dashboard', [DashboardController::class, 'index']);
+    Route::middleware('UserAkses:verifier1')->group(function () {
+        Route::get('/verifier1/dashboard', [DashboardController::class, 'index']);
     });
     Route::get('logout', [AuthController::class, 'logout']);
-
-    Route::get('/admin/settings', function () {
-        return view('settings.dashboard-settings');
-    });
 });

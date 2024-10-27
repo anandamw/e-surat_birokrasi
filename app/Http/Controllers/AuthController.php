@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-        
+
         $request->validate(
             [
                 "email" => "required|email",
@@ -44,8 +44,6 @@ class AuthController extends Controller
                 return redirect('/login')->with('error', 'Unauthorized access. You do not have the correct role.');
             }
         }
-
-
         return redirect('/login')->with('error', 'Invalid credentials. Please try again.');
     }
 

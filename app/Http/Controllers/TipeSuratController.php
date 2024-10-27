@@ -16,7 +16,6 @@ class TipeSuratController extends Controller
         return view('settings.tipe_surat.tipe-view', compact('kategori', 'getKategori'));
     }
 
-
     public function store(Request $request)
     {
         $data = [
@@ -30,32 +29,20 @@ class TipeSuratController extends Controller
         return response()->json('success');
     }
 
-    public function edit($id)
-    {
-        $tipeSurat = TipeSurat::find($id);
-        if ($tipeSurat) {
-            return response()->json($tipeSurat);
-        } else {
-            return response()->json(['message' => 'Data tidak ditemukan'], 404);
-        }
-    }
+
 
 
     public function update(Request $request, $id)
     {
-        dd($request->all());
 
-        $tipeSurat = TipeSurat::find($id);
-        if ($tipeSurat) {
-            $tipeSurat->update([
-                "kategori_id" => $request->kategori_id,
-                "nama_tipe_surat" => $request->nama_tipe_surat,
-                "nama_file" => $request->nama_file
-            ]);
-            return response()->json('success');
-        } else {
-            return response()->json(['message' => 'Data tidak ditemukan'], 404);
-        }
+        $data = [
+            "kategori_id" => $request->kategori_id,
+            "nama_tipe_surat" => $request->nama_tipe_surat,
+            "nama_file" => $request->nama_file
+        ];
+
+        TipeSurat::where('id_tipe_surat', $id)->update($data);
+        return redirect('/settings');
     }
 
     public function destroy($id)

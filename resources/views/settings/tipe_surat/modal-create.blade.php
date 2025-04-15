@@ -21,7 +21,7 @@
                        </div>
                        <div class="mb-3">
                            <label class="form-label" for="modal-auth-name">File</label>
-                           <input class="form-control" type="text" name="nama_file" autocomplete="on"
+                           <input class="form-control" type="file" name="nama_file" autocomplete="on"
                                id="modal-auth-name" required />
                        </div>
                        <div class="mb-3"><label class="form-label" for="basic-form-name">Pilih Kategori
